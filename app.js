@@ -4,5 +4,4 @@ document.addEventListener("click", function(){
   });
 
   document.addEventListener('touchstart', function(e){
-    document.getElementById("TouchEvent").innerHTML = "Click Event";
-});
+    document.getElementById("TouchEvent").innerHTML = "Touch Event";
