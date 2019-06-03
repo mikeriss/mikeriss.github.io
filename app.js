@@ -1,8 +1,13 @@
+
+
+
+
 document.addEventListener("click", function(){
     debugger;
     //document.getElementById("Title").innerHTML = "Click Event";
     if(firstTimeClicked){
-        interval=setInterval(timer,10)
+        setInterval(timer,1000)
+        //interval1=window.rInterval(timer,10);
         firstTimeClicked = false;
     }else{
         newLap();
@@ -20,13 +25,8 @@ document.addEventListener("click", function(){
     var firstTimeClicked = true;
 
     function timer() {
-        document.getElementById("timer").innerHTML="Timer: "+m+":"+s+":"+ms/10;
-        ms+=10;
-        
-        if(ms==1000){
-            s+=1;
-            ms=0;
-        }
+        document.getElementById("timer").innerHTML="Timer: "+m+":"+s;
+        s+=1;
         
         if(s==60){
             m+=1;
