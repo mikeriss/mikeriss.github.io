@@ -46,6 +46,10 @@ document.addEventListener("click", function(){
             lapssect.appendChild(lp);
             lapssect.appendChild(laplbl);
             newlap+=1;
+
+            m=0;    // minute
+            s=0;    // second
+            ms=0;   // millisecond
     }
     
     function start(){
