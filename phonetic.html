@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NATO Phonetic Alphabet</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NATO Phonetic Alphabet</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+
+    #output {
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+	max-width: 500px;
+    }
+    #output p span { display: inline-block;
+    }
+    #output span::first-letter {
+      color: red;
+    }
+  </style>
+  <script>
+function toNATO(str) {
+  // Check if the string is empty
+  if (str.length === 0) {
+    return "Error: the input string is empty";
+  }
+
+  // Create a map of the NATO phonetic alphabet
+  const natoMap = {
+    a: "alpha",
+    b: "bravo",
+    c: "charlie",
+    d: "delta",
+    e: "echo",
+    f: "foxtrot",
+    g: "golf",
+    h: "hotel",
+    i: "india",
+    j: "juliett",
+    k: "kilo",
+    l: "lima",
+    m: "mike",
+    n: "november",
+    o: "oscar",
+    p: "papa",
+    q: "quebec",
+    r: "romeo",
+    s: "sierra",
+    t: "tango",
+    u: "uniform",
+    v: "victor",
+    w: "whiskey",
+    x: "xray",
+    y: "yankee",
+    z: "zulu"
+  };
+
+  // Convert the string to lowercase
+  str = str.toLowerCase();
+
+  // Initialize the result string
+  let result = "";
+
+  // Loop through each character in the string
+  for (let char of str) {
+    // If the character is a letter, add its corresponding NATO phonetic alphabet to the result
+    if (natoMap[char]) {
+      result += "<span>" + natoMap[char] + "</span> ";
+    } else {
+      // Otherwise, just add the character to the result
+      result += char;
+    }
+  }
+
+  // Return the result
+  return result;
+}
+  </script>
+</head>
+<body class="flex items-center justify-center h-screen">
+  <div class="bg-white rounded-md shadow-md p-4">
+    <h1 class="text-3xl font-bold mb-4">NATO Phonetic Alphabet</h1>
+    <p class="mb-2">Enter a string to convert it to the NATO phonetic alphabet:</p>
+    <input id="input" type="text" oninput="update()" class="border-2 px-2 py-1 rounded-md w-full">
+    <p id="output" class="mt-4"></p>
+    <script>
+      function update() {
+        const input = document.getElementById("input");
+        const output = document.getElementById("output");
+        output.innerHTML = toNATO(input.value);
+      }
+    </script>
+ </div> 
+</body>
+</html>
